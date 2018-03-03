@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/normalize.css'%}">
+    <link rel="stylesheet" href="{% static 'css/app.css'%}">
+    {% block head %}
+    <title>Base</title>
+    {% endblock %}
+</head>
+<body>
+    <header class="main-header">
+        <div>
+            <form method="get">
+               <input type="search" placeholder="Search for posts and members">
+           </form>
+           <div id="logo"></div>
+       </div>
+        <nav>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Members</a></li>
+                <li><a href="{% url 'add_post' %}">Create Post</a></li>
+                <li><a href="#">Home</a></li>
+             </ul
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

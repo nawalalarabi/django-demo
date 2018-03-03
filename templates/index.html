@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block content %}
+   <main class="all-posts">
+        <h1>All Posts</h1>
+        <ul>
+            {% for post in posts %}
+                <li class="post"><a href="#">{{ post.title }}</a></li>
+            {% empty %}
+                <li class="no-posts">There is no posts yet</li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}
