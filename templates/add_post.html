@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+    <title>Add Post</title>
+
+{% endblock %}
+
+
+{% block content %}
+    <main class="add-post">
+        <h1>Add Post</h1>
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td>{{form.title}}</td>
+                </tr>
+                <tr>
+                    <td>{{form.content}}</td>
+                </tr>
+            </table>
+            <input type="submit" value="Save Post" class="submit">
+            {% csrf_token %}
+        </form>
+    </main>
+{% endblock %}
