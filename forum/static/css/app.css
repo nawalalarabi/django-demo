@@ -128,3 +128,21 @@ a {
     margin-left: 40%;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #5e8eb6;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer div {
+    display: flex;
+    justify-content: space-between;
+    width: 54%;
+    align-items: center;
+    padding-right: 2em;
+}
