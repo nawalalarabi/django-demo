@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block head %}
+
+    <title>{{ post.title }}</title>
+
+{% endblock %}
+
+
+{% block content %}
+    
+    <article>
+        <header>
+            <h1>{{ post.title }}</h1>
+            <p>Created by {{ post.user.username }} on {{ post.pub_date|naturaltime}}</p>
+        </header>
+        <p>{{ post.content }}</p>
+    </article> 
+{% endblock %}
