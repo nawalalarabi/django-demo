@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View
 from .models import Post
 from .forms import PostForm
@@ -25,3 +25,14 @@ class AddPost(View):
             return redirect('home')
 
         return render(request, self.template_name, {'form': self.form_class})
+
+
+class PostShow(View):
+    template_name = 'post_show'
+
+    def get(self, request, year, month, slug):
+        user = request.user
+        post = get_object_or_404(Post, slug=slug)
+
+        render(request, self.template_name, {'member': user,
+                                             'post': post})
