@@ -28,7 +28,7 @@ class AddPost(View):
 
 
 class PostShow(View):
-    template_name = 'post_show'
+    template_name = 'post_show.html'
 
     def get(self, request, year, month, slug):
         user = request.user
