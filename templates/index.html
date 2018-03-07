@@ -10,7 +10,7 @@
         <h1>All Posts</h1>
         <ul>
             {% for post in posts %}
-                <li class="post"><a href="#">{{ post.title }}</a></li>
+                <a href="{{ post.get_absolute_url }}"><li class="post">{{ post.title }}</li></a>
             {% empty %}
                 <li class="no-posts">There is no posts yet</li>
             {% endfor %}
