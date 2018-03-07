@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+
+    <title>Confirm Delete</title>
+
+{% endblock %}
+
+
+{% block content %}
+    
+    <main class="post-delete">
+       <form method="post">
+            <p>Are you sure you want to delete "{{ post }}" ?</p>
+            
+            <input type="submit" value="Yes, am sure" />
+            {% csrf_token %}
+        </form>
+    </main>
+{% endblock %}
