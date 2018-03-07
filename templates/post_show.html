@@ -13,8 +13,12 @@
     
     <article>
         <header>
-            <h1>{{ post.title }}</h1>
-            <span>Created by <a href="#">{{ post.user.username }}</a> {{ post.pub_date|naturaltime}}</span>
+           
+            <div>
+               <h1>{{ post.title }}</h1>
+                <a href="{% url 'post_edit' year=post.pub_date.year month=post.pub_date.month slug=post.slug %}"><button>Edit</button></a>
+            </div>
+            <p>Created by <a href="#">{{ post.user.username }}</a> {{ post.pub_date|naturaltime}}</p>
         </header>
         <p>{{ post.content }}</p>
     </article> 
