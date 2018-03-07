@@ -140,7 +140,7 @@ article header h1 {
     font-size: 2em;
 }
 
-article header span {
+article header p {
     color: #7e8494
 }
 
@@ -157,13 +157,9 @@ article header a:hover {
     color: #66bdfb
 }
 
-
-article p {
-    margin-top: 50px;
-    color: #485454;
-    font-size: 1.3em;
+article header div, article header div h1 {
+    display: inline;
 }
-
 
 footer {
     position: absolute;

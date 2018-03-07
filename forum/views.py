@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, PostEdit
 
 
 def home(request):
@@ -30,9 +30,38 @@ class AddPost(View):
 class PostShow(View):
     template_name = 'post_show.html'
 
-    def get(self, request, year, month, slug):
+    def get(self, request, year=None, month=None, slug=None):
         user = request.user
         post = get_object_or_404(Post, slug=slug)
 
         return render(request, self.template_name, {'member': user,
                                              'post': post})
+
+
+class PostEditView(View):
+    form_class = None
+    template_name = 'post_edit.html'
+
+    def get(self, request, year=None, month=None, slug=None):
+        post = get_object_or_404(Post, slug=slug)
+
+        self.form_class = PostEdit(initial={
+            'title': post.title,
+            'content': post.content
+        })
+
+        return render(request, self.template_name, {'form': self.form_class})
+
+    def post(self, request, year=None, month=None, slug=None):
+        self.form_class = PostEdit(request.POST)
+        post = get_object_or_404(Post, slug=slug)
+        post_date = post.pub_date
+
+        if self.form_class.is_valid():
+            cleaned_data = self.form_class.cleaned_data
+            post.title = cleaned_data['title']
+            post.content = cleaned_data['content']
+            post.save(update_fields=['title', 'content'])
+            return redirect(post.get_absolute_url())
+
+        return render(request, self.template_name, {'form': self.form_class})
