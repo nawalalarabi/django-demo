@@ -1,5 +1,5 @@
 body {
-    font-family: Arial
+    font-family: Arial;
 }
 
 a {
@@ -37,7 +37,7 @@ a {
     background-image: url("/static/images/logo.png")
 }
 
-.main-header nav, article {
+.main-header nav, article, .post-delete {
     width: 700px;
     margin: 0 auto;
 }
@@ -159,6 +159,11 @@ article header a:hover {
 
 article header div, article header div h1 {
     display: inline;
+}
+
+.post-delete {
+    width: 25%;
+    margin-top: 10%;
 }
 
 footer {

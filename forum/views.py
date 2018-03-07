@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import View
+from django.views.generic.edit import DeleteView
+
 from .models import Post
 from .forms import PostForm, PostEdit
 
@@ -65,3 +68,16 @@ class PostEditView(View):
             return redirect(post.get_absolute_url())
 
         return render(request, self.template_name, {'form': self.form_class})
+
+
+class PostDelete(View):
+    template_name = 'post_delete.html'
+
+    def get(self, request, year=None, month=None, slug=None):
+        post = get_object_or_404(Post, slug=slug)
+        return render(request, self.template_name, {'post': post})
+
+    def post(self, request, year=None, month=None, slug=None):
+        post = get_object_or_404(Post, slug=slug)
+        post.delete()
+        return redirect('home')
