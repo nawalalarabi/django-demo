@@ -37,7 +37,7 @@ a {
     background-image: url("/static/images/logo.png")
 }
 
-.main-header nav {
+.main-header nav, article {
     width: 700px;
     margin: 0 auto;
 }
@@ -126,6 +126,39 @@ a {
 .add-post form .submit {
     margin-top: 30px;
     margin-left: 40%;
+}
+
+
+article {
+    width: 700px;
+    margin-top: 60px;
+    padding: 20px;
+}
+
+article header h1 {
+    color: #1d1d1d;
+    font-size: 2em;
+}
+
+article header p {
+    color: #7e8494
+}
+
+article header a {
+    color: #689ca6
+}
+
+article header a:visited {
+    color: #16405e   
+
+}
+
+article header a:hover {
+    color: #66bdfb
+}
+
+article header div, article header div h1 {
+    display: inline;
 }
 
 footer {
