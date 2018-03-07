@@ -14,7 +14,7 @@
     <article>
         <header>
             <h1>{{ post.title }}</h1>
-            <p>Created by {{ post.user.username }} on {{ post.pub_date|naturaltime}}</p>
+            <span>Created by <a href="#">{{ post.user.username }}</a> {{ post.pub_date|naturaltime}}</span>
         </header>
         <p>{{ post.content }}</p>
     </article> 

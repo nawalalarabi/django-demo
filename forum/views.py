@@ -34,5 +34,5 @@ class PostShow(View):
         user = request.user
         post = get_object_or_404(Post, slug=slug)
 
-        render(request, self.template_name, {'member': user,
+        return render(request, self.template_name, {'member': user,
                                              'post': post})
