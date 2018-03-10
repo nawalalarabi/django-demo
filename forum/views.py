@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse_lazy
 from django.views.generic import View
-from django.views.generic.edit import DeleteView
 
+from rest_framework import generics
+
+from . import serializers
 from .models import Post
 from .forms import PostForm, PostEdit
 
@@ -81,3 +82,8 @@ class PostDelete(View):
         post = get_object_or_404(Post, slug=slug)
         post.delete()
         return redirect('home')
+
+
+class PostListAPIView(generics.ListAPIView):
+    queryset = Post.objects.all()
+    serializer_class = serializers.PostSerializer
