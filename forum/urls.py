@@ -3,7 +3,8 @@ from . import views
 
 
 api_urls = [
-    path('api/posts/', views.PostListAPIView.as_view(), name='post_list_api')
+    path('api/posts/', views.PostListAPIView.as_view(), name='post_list_api'),
+    path('api/posts/add', views.PostAddAPIView.as_view(), name='post_add_api')
 ]
 
 urlpatterns = [
