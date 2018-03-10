@@ -97,3 +97,9 @@ class PostAddAPIView(generics.CreateAPIView):
 class PostEditAPIView(generics.UpdateAPIView):
     queryset = Post.objects.all()
     serializer_class = serializers.PostSerializer
+
+
+class PostDeleteAPIView(generics.DestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = serializers.PostSerializer
+
