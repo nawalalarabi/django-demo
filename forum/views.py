@@ -94,6 +94,11 @@ class PostAddAPIView(generics.CreateAPIView):
     serializer_class = serializers.PostSerializer
 
 
+class PostShowAPIView(generics.RetrieveAPIView):
+    queryset = Post.objects.all()
+    serializer_class = serializers.PostSerializer
+
+
 class PostEditAPIView(generics.UpdateAPIView):
     queryset = Post.objects.all()
     serializer_class = serializers.PostSerializer
